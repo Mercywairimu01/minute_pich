@@ -7,10 +7,18 @@
         {% else %}
         <title> Welcome to the pitch app </title>
         {% endif %}
+        {% extends 'bootstrap/base.html'%}
+
     </head>
     <body>
-        {% block content%}
+        <!-- Navbar block  --> 
+        {% block navbar %}
+            {% include 'navbar.html' %}
+        {% endblock %}
         
+
+        {% block content%}
+
         {% endblock%}
     </body>
 </html>
