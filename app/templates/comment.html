@@ -2,13 +2,15 @@
 {% import 'bootstrap/wtf.html' as wtf %}
 
 {% block content %}
+<div class="container-fluid" style="background-color: white;margin-top:70px;">
+    <div class="row">
 
-            <div class="col-md-10" style="font-weight:bold ; height: 30px;">
+       <div class="col-md-10" style="font-weight:bold ; height: 30px;">
  
                  {{wtf.quick_form(form)}}
             </div>
        
-     <div class="row" style="margin-top:60px ;">
+     <div class="row" style="margin-top:100px ;">
         <h3 class="text-center">All comments  </h3>
         
                 {% for comment in all_comments %}
@@ -17,7 +19,7 @@
                     <div class="card" style="margin-top:10px ;">
                         <h4 class="card-header text-center">{{comment.pitch.title}}</h4>
                         <p class="card-body"> {{ comment.comment }}</p>
-                        <p class="card-footer text-center">Posted By: <b> {{comment.user.username}} </b> <br> Posted at:{{comment.user.time}}</p>
+                        <p class="card-footer text-center">Posted By: <b> {{comment.user.username}} </b></p>
                     </div>
                  </div>
                 {%else%}
@@ -30,5 +32,8 @@
                
                 {% endfor %}
            </div>
+        </div>
+    </div>
+                    
  
 {% endblock%}
