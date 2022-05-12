@@ -18,7 +18,7 @@ class User(UserMixin,db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(150), unique=True, nullable=False)
     bio = db.Column(db.String(255))
-    avatar = db.Column(db.String(),nullable = True ,default='default.png')
+    avatar = db.Column(db.String(),nullable = True)
     secure_password =db.Column(db.String(255),nullable =False)
     pitches = db.relationship('Pitch', backref='user', lazy='dynamic')
     upvote = db.relationship('Upvote', backref='user', lazy='dynamic')

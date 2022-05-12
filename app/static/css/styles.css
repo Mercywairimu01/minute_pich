@@ -1,15 +1,14 @@
-*{
-   box-sizing: border-box;
-   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-   padding: 0;
-   margin: 0;
-}
-body{
-   background-image:url();
-   background-size:cover;
-   background-position:center;
-   background-repeat:no-repeat;
-}
 #footer{
-   background-color: aqua;
+   color: aquamarine;
+}
+.card{
+   border: 2px;
+   border-radius: 3px solid black;
+}
+#viewprof{
+   border: 2px;
+   border-radius: 3px solid black;
+}
+#marcocard{
+ background-color: blue;
 }
