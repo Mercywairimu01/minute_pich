@@ -6,7 +6,7 @@ class Config:
     '''
     UPLOADED_PHOTOS_DEST ='app/static/photos'
     SECRET_KEY =os.environ.get('SECRET_KEY')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:188023@localhost/pitchy'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:188023@localhost/pitchie'
     SQLALCHEMY_TRACK_MODIFICATIONS=True
     
     #  email configurations
@@ -23,7 +23,7 @@ class ProdConfig(Config):
         Config: The parent configuration class with General configuration settings
     '''
     # SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:188023@localhost/pitchy'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:188023@localhost/pitchie'
 class DevConfig(Config):
     '''
     Development  configuration child class
@@ -31,7 +31,7 @@ class DevConfig(Config):
         Config: The parent configuration class with General configuration settings
     '''
     # SQLALCHEMY_DATABASE_URI=os.environ.get('DATABASE_URL')
-    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:188023@localhost/pitchy'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:188023@localhost/pitchie'
     DEBUG = True
   
 config_options = {
