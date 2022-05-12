@@ -24,7 +24,7 @@ class ProdConfig(Config):
     '''
    
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:188023@localhost/pitchie'
-    DEBUG = True
+   
 class DevConfig(Config):
     '''
     Development  configuration child class
@@ -33,7 +33,7 @@ class DevConfig(Config):
     '''
    
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringa:188023@localhost/pitchie'.replace('://','ql://',1)
-   
+    DEBUG = True
   
 config_options = {
 'development':DevConfig,
