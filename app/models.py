@@ -1,3 +1,4 @@
+from email.policy import default
 from . import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin,current_user
@@ -18,8 +19,8 @@ class User(UserMixin,db.Model):
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(150), unique=True, nullable=False)
     bio = db.Column(db.String(255))
-    avatar = db.Column(db.String(50),default ='default.jpeg')
-    password =db.Column(db.String(255),nullable =False)
+    avatar = db.Column(db.String(),nullable = True ,default='default.png')
+    secure_password =db.Column(db.String(255),nullable =False)
     pitches = db.relationship('Pitch', backref='user', lazy='dynamic')
     upvote = db.relationship('Upvote', backref='user', lazy='dynamic')
     comment = db.relationship('Comment', backref='user', lazy='dynamic')
@@ -31,10 +32,10 @@ class User(UserMixin,db.Model):
 
     @set_password.setter
     def password(self, password):
-        self.password = generate_password_hash(password)
+        self.secure_password = generate_password_hash(password)
 
     def verify_password(self, password):
-        return check_password_hash(self.password,password) 
+        return check_password_hash(self.secure_password,password) 
     
     def save_user(self):
         db.session.add(self)

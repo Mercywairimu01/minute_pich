@@ -28,10 +28,9 @@ def profile(name):
     posts = Pitch.query.filter_by(user_id = user_id).all()
     if user is None:
         abort(404)
-
     return render_template("profile/profile.html", user = user,posts=posts)
 
-@main.route('/new_pitch', methods = ['POST','GET'])
+@main.route('/create_new', methods = ['POST','GET'])
 @login_required
 def new_pitch():
     form = PitchForm()
@@ -39,8 +38,8 @@ def new_pitch():
         title = form.title.data
         post = form.post.data
         category = form.category.data
-        user_id= current_user._get_current_object().id
-        new_pitch_object = Pitch(post=post,category=category,title=title,user_id=user_id)
+        user_id= current_user
+        new_pitch_object = Pitch(post=post,category=category,title=title,user_id=current_user._get_current_object().id)
         new_pitch_object.save_pitch()
         return redirect(url_for('main.index'))
         
@@ -82,8 +81,8 @@ def upvote(id):
 def downvote(id):
     pitch = Downvote.get_downvotes(id)
     valid_string = f'{current_user.id}:{id}'
-    for pie in pitch:
-        to_str = f'{pie}'
+    for p in pitch:
+        to_str = f'{p}'
         print(valid_string+" "+to_str)
         if valid_string == to_str:
             return redirect(url_for('main.index',id=id))
@@ -120,4 +119,4 @@ def update_pic(name):
         path = f'photos/{filename}'
         user.avatar = path
         db.session.commit()
-    return redirect(url_for('main.profile',username=name))
+    return redirect(url_for('main.profile',name=name))

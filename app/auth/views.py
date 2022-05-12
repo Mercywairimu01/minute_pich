@@ -32,7 +32,7 @@ def registration():
 
         mail_message("Welcome to Minute Pitch","email/welcome_user",user.email,user=user)
 
-        return redirect(url_for('auth/login.html'))
+        return redirect(url_for('auth.login'))
         
     return render_template('auth/reg.html', registration_form = registration_form)
     

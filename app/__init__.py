@@ -6,6 +6,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_uploads import UploadSet,configure_uploads,IMAGES
 from flask_mail import Mail
 
+
 db = SQLAlchemy()
 mail =Mail()
 bootstrap = Bootstrap()
