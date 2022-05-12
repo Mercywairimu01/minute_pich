@@ -1,0 +1,5 @@
+Hello {{user.username}}
+Welcome to Minute Pitch where can create new elevator pitches or even, pickup lines and puns, 
+leave feedback on pitches and upvote or downvote them.
+
+We have just seen you have signed up for our application and want to welcome you to the family.

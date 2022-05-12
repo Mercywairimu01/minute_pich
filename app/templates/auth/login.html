@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% import 'macros.html' as macro %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+
+{% block header %}
+	<h1>{% block title %}Minute Pitch -Login in to Account{% endblock %}</h1>
+{% endblock %}
+
+<!-- Content block -->
+{% block content %}
+
+
+
+<div class="container login-page" style="background-color: white ;margin-top: 70px;">
+	<div class="row">
+		<div class="col-md-3"></div>
+		<div class="col-md-6">
+			<h2 class="text-center"> Login in to Account</h2>
+			
+			{% for message in get_flashed_messages() %}
+			 <div class="alert alert-danger">
+			   <button type="button" class="close" data-dismiss="alert">&times;</button>
+			    {{ message }}
+			  </div>
+		    {% endfor %}
+		    <!-- Login form  -->
+
+		    {{ wtf.quick_form(login_form) }}
+
+			<div class="border-top pt-3">
+				<small class="text-muted">
+					Don't Have an account?<a class="ml-2" href="{{url_for('auth.registration')}}">Sign Up</a>
+				</small>
+			</div>
+		
+		</div>
+
+		<div clas="col-md-3"> </div>
+
+	</div>
+</div>
+
+{% endblock%}
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="post mt150">
+	<header>
+		<h1>
+			Login in to Account
+		</h1>
+	</header> -->
+	 <!--Flash message -->
+	<!-- {% for message in get_flashed_messages() %}
+	  <div class="alert alert-danger">
+	  <button type="button" class="close" data-dismiss="alert">&times;</button>
+	  {{ message }}
+	  </div>
+	{% endfor %}
+
+	<div id="login" class="home mt20">
+		<div class="archive">
+			<form action="" method="POST" role="form">
+				{{ login_form.csrf_token }}
+				<div class="form-group">
+					{{ login_form.username(class_="form-control squared",placeholder="Username",autocomplete="off") }}
+				</div>
+				<div class="form-group">
+					{{ login_form.password(class_="form-control squared",placeholder="Password",autocomplete="off") }}
+				</div>
+				<div class="form-check">
+					{{login_form.remember(class_="form-check-input")}}
+					{{login_form.remember.label(class_="form-check-label")}}
+				</div>
+				{{ login_form.login(class="btn btn-primary btn-block btn-no-radius btn-padding") }}
+				<div class="text-muted ml-2">
+					<a href="#">Forgot password?</a>
+
+				</div>
+			</form>
+			<div class="border-top pt-3">
+				<small class="text-muted">
+					Don't Have an account?<a class="ml-2" href="{{url_for('auth.registration')}}">Sign Up</a>
+				</small>
+			</div>
+				
+		</div>
+	</div>
+</div>
+</div> -->
+
+
+

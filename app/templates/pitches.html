@@ -1,0 +1,22 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf %}
+
+
+{% block content %}
+
+        <div  id="pitch"> 
+            
+            <div class="col" id="pitchform" style="margin-top: 20px;">
+                <div class="card" style="height: 500px;">
+                <h2 class="text-center">Create Your own Pitch!</h2>
+                <div class="col-md-8" style="margin-left: 160px;font-weight:bold;">
+                {{wtf.quick_form(form)}}
+               </div>
+              
+            </div>
+            </div>
+            </div>
+            
+   
+   
+{% endblock%}
